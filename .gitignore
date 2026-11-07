@@ -1,0 +1,12 @@
+.venv/
+.hf-cache/
+.idea/
+__pycache__/
+models/
+stable-diffusion.cpp/
+archive-first-run/
+smoke/
+*.log
+!results/**/*.log
+results/**/run-2/*.png
+.DS_Store

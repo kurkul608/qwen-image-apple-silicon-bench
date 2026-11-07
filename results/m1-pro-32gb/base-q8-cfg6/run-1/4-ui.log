@@ -1,0 +1,122 @@
+ggml_metal_device_init: tensor API disabled for pre-M5 and pre-A19 devices
+ggml_metal_library_init: using embedded metal library
+ggml_metal_library_compile_all: compiled 'fa_aux' library in 0.004 sec
+ggml_metal_library_compile_all: compiled 'fa_f16' library in 0.018 sec
+ggml_metal_library_compile_all: compiled 'fa_f32' library in 0.007 sec
+ggml_metal_library_compile_all: compiled 'fa_q4_0' library in 0.014 sec
+ggml_metal_library_compile_all: compiled 'fa_q4_1' library in 0.014 sec
+ggml_metal_library_compile_all: compiled 'fa_q5_0' library in 0.016 sec
+ggml_metal_library_compile_all: compiled 'fa_q5_1' library in 0.006 sec
+ggml_metal_library_compile_all: compiled 'fa_q8_0' library in 0.018 sec
+ggml_metal_library_compile_all: compiled 'fa_tensor' library in 0.003 sec
+ggml_metal_library_compile_all: compiled 'fa_vec_f16' library in 0.012 sec
+ggml_metal_library_compile_all: compiled 'fa_vec_f32' library in 0.005 sec
+ggml_metal_library_compile_all: compiled 'fa_vec_q4_0' library in 0.021 sec
+ggml_metal_library_compile_all: compiled 'fa_vec_q4_1' library in 0.015 sec
+ggml_metal_library_compile_all: compiled 'fa_vec_q5_0' library in 0.011 sec
+ggml_metal_library_compile_all: compiled 'fa_vec_q5_1' library in 0.008 sec
+ggml_metal_library_compile_all: compiled 'fa_vec_q8_0' library in 0.009 sec
+ggml_metal_library_compile_all: compiled 'mul_mv' library in 0.019 sec
+ggml_metal_library_compile_all: compiled 'mul_mv_mma' library in 0.017 sec
+ggml_metal_library_compile_all: compiled 'mul_mm' library in 0.006 sec
+ggml_metal_library_compile_all: compiled 'quantize' library in 0.009 sec
+ggml_metal_library_compile_all: compiled 'softmax' library in 0.006 sec
+ggml_metal_library_compile_all: compiled 'norm' library in 0.013 sec
+ggml_metal_library_compile_all: compiled 'unary' library in 0.005 sec
+ggml_metal_library_compile_all: compiled 'binbcast' library in 0.014 sec
+ggml_metal_library_compile_all: compiled 'reduce' library in 0.014 sec
+ggml_metal_library_compile_all: compiled 'tri' library in 0.010 sec
+ggml_metal_library_compile_all: compiled 'ssm' library in 0.005 sec
+ggml_metal_library_compile_all: compiled 'wkv' library in 0.005 sec
+ggml_metal_library_compile_all: compiled 'gated_delta_net' library in 0.010 sec
+ggml_metal_library_compile_all: compiled 'solve_tri' library in 0.009 sec
+ggml_metal_library_compile_all: compiled 'rope' library in 0.005 sec
+ggml_metal_library_compile_all: compiled 'conv' library in 0.005 sec
+ggml_metal_library_compile_all: compiled 'upscale' library in 0.009 sec
+ggml_metal_library_compile_all: compiled 'argsort' library in 0.005 sec
+ggml_metal_library_compile_all: compiled 'pool' library in 0.009 sec
+ggml_metal_library_compile_all: compiled 'misc' library in 0.005 sec
+ggml_metal_library_compile_all: loaded 36 libraries from embedded data in 0.021 sec (max single = 0.021 sec)
+ggml_metal_rsets_init: creating a residency set collection (keep_alive = 180 s)
+ggml_metal_device_init: GPU name:   MTL0 (Apple M1 Pro)
+ggml_metal_device_init: GPU family: MTLGPUFamilyApple7  (1007)
+ggml_metal_device_init: GPU family: MTLGPUFamilyMetal3  (5001)
+ggml_metal_device_init: simdgroup reduction   = true
+ggml_metal_device_init: simdgroup matrix mul. = true
+ggml_metal_device_init: has unified memory    = true
+ggml_metal_device_init: has bfloat            = true
+ggml_metal_device_init: has tensor            = false
+ggml_metal_device_init: use residency sets    = true
+ggml_metal_device_init: use shared buffers    = true
+ggml_metal_device_init: recommendedMaxWorkingSetSize  = 22906.50 MB
+[I] loading diffusion model from 'models/qwen-image-2.1-Q8_0.gguf' --- diffusion_engine.cpp:692
+[I] load models/qwen-image-2.1-Q8_0.gguf using gguf format --- model_loader.cpp:220
+[I] loading llm from 'models/qwen3vl_8b_int8_convrot.safetensors' --- diffusion_engine.cpp:749
+[I] load models/qwen3vl_8b_int8_convrot.safetensors using safetensors format --- model_loader.cpp:226
+[I] loading vae from 'models/qwen_image_2.1_vae_bf16.safetensors' --- diffusion_engine.cpp:763
+[I] load models/qwen_image_2.1_vae_bf16.safetensors using safetensors format --- model_loader.cpp:226
+[I] Version: Qwen Image 2.1  --- diffusion_engine.cpp:975
+[I] ggml: ggml_metal_init: allocating
+[I] ggml: ggml_metal_init: found device: Apple M1 Pro
+[I] ggml: ggml_metal_init: picking default device: Apple M1 Pro
+[I] ggml: ggml_metal_init: use fusion         = true
+[I] ggml: ggml_metal_init: use concurrency    = true
+[I] ggml: ggml_metal_init: use graph optimize = true
+[I] Weight type stat:                      f32: 319  |    q8_0: 196  |      i8: 254  |    bf16: 738   --- diffusion_engine.cpp:1548
+[I] Conditioner weight type stat:          f32: 254  |      i8: 254  |    bf16: 496   --- diffusion_engine.cpp:1549
+[I] Diffusion model weight type stat:      f32: 65   |    q8_0: 196  |    bf16: 4     --- diffusion_engine.cpp:1550
+[I] VAE weight type stat:                 bf16: 238   --- diffusion_engine.cpp:1551
+[I] using VAE for encoding / decoding --- model_builders.cpp:217
+[I] flash attention auto: CPU -> on (CPU) --- flash_attn.cpp:66
+[I] flash attention auto: MTL0 -> on (probe: normal 3.535 ms, flash 3.120 ms) --- flash_attn.cpp:95
+[I] conv2d direct auto: MTL0 -> off (no implicit GEMM path) --- conv_direct.cpp:90
+[I] conv3d direct auto: MTL0 -> off (no implicit GEMM path) --- conv_direct.cpp:90
+[I] total params memory size = 16256.11MB (VRAM 0.00MB, RAM 16256.11MB): text_encoders 8324.85MB(RAM), diffusion_model 7286.88MB(RAM), vae 644.38MB(RAM), controlnet 0.00MB(N/A), extensions 0.00MB(N/A) --- diffusion_engine.cpp:1438
+[I] running in FLOW mode --- diffusion_engine.cpp:1478
+[I] generate_image 1024x1024 --- image.cpp:916
+[I] Using 'qwen' preset for reference images --- diffusion_engine.cpp:3109
+[I] get_sigmas with Flux scheduler --- denoiser.hpp:1196
+[I] sampling using Euler method --- request.cpp:477
+[I] qwen3vl build cached graph cut plan done (taking 2 ms) --- ggml_graph_cut.cpp:1034
+  |###                                               |  32/650 - 217.83MB/s[K  |#####                                             |  55/650 - 790.92MB/s[K  |######                                            |  68/650 - 676.27MB/s[K  |########                                          |  96/650 - 918.01MB/s[K  |#########                                         | 109/650 - 835.54MB/s[K  |###########                                       | 132/650 - 916.67MB/s[K  |############                                      | 152/650 - 927.94MB/s[K  |##############                                    | 174/650 - 937.00MB/s[K  |###############                                   | 192/650 - 934.70MB/s[K  |#################                                 | 210/650 - 933.32MB/s[K  |##################                                | 230/650 - 929.81MB/s[K  |####################                              | 253/650 - 967.44MB/s[K  |######################                            | 274/650 - 981.78MB/s[K  |#######################                           | 294/650 - 978.20MB/s[K  |#########################                         | 314/650 - 979.38MB/s[K  |##########################                        | 332/650 - 975.76MB/s[K  |############################                      | 354/650 - 976.67MB/s[K  |#############################                     | 374/650 - 974.43MB/s[K  |###############################                   | 392/650 - 971.13MB/s[K  |################################                  | 413/650 - 980.53MB/s[K  |###################################               | 444/650 -   1.12GB/s[K  |####################################              | 467/650 -   1.11GB/s[K  |######################################            | 485/650 -   1.10GB/s[K  |########################################          | 508/650 -   1.10GB/s[K  |##########################################        | 536/650 -   1.12GB/s[K  |###########################################       | 557/650 -   1.11GB/s[K  |#############################################     | 575/650 -   1.10GB/s[K  |###############################################   | 602/650 -   1.11GB/s[K  |################################################# | 629/650 -   1.12GB/s[K  |##################################################| 647/650 -   1.11GB/s[K  |##################################################| 650/650 -   1.13GB/s[K
+[I] loading tensors completed, taking 6.27s (read: 6.17s, memcpy: 0.00s, convert: 0.00s, copy_to_backend: 0.00s) --- model_loader.cpp:1450
+[I] qwen3vl build cached graph cut plan done (taking 1 ms) --- ggml_graph_cut.cpp:1034
+[I] get_learned_condition completed, taking 17.27s --- image.cpp:627
+[I] generating image: 1/1 - seed 42 --- image.cpp:967
+[I] qwen_image_2_1 build cached graph cut plan done (taking 3 ms) --- ggml_graph_cut.cpp:1034
+  |####                                              |  20/265 - 431.99MB/s[K  |######                                            |  28/265 - 459.44MB/s[K  |########                                          |  41/265 - 827.09MB/s[K  |#########                                         |  46/265 - 874.49MB/s[K  |###########                                       |  54/265 - 919.05MB/s[K  |############                                      |  62/265 - 948.88MB/s[K  |##############                                    |  73/265 - 982.94MB/s[K  |###############                                   |  78/265 - 987.52MB/s[K  |#################                                 |  89/265 - 1004.29MB/s[K  |###################                               |  98/265 - 1022.63MB/s[K  |####################                              | 105/265 - 1022.39MB/s[K  |######################                            | 113/265 -   1.00GB/s[K  |########################                          | 122/265 -   1.02GB/s[K  |#########################                         | 130/265 -   1.02GB/s[K  |###########################                       | 138/265 -   1.02GB/s[K  |############################                      | 147/265 -   1.06GB/s[K  |##############################                    | 155/265 -   1.06GB/s[K  |###############################                   | 162/265 -   1.03GB/s[K  |#################################                 | 171/265 -   1.06GB/s[K  |##################################                | 180/265 -   1.06GB/s[K  |####################################              | 187/265 -   1.06GB/s[K  |#####################################             | 196/265 -   1.06GB/s[K  |#######################################           | 206/265 -   1.08GB/s[K  |#########################################         | 214/265 -   1.08GB/s[K  |##########################################        | 221/265 -   1.07GB/s[K  |############################################      | 230/265 -   1.08GB/s[K  |##############################################    | 241/265 -   1.08GB/s[K  |###############################################   | 245/265 -   1.07GB/s[K  |################################################# | 257/265 -   1.08GB/s[K  |##################################################| 263/265 -   1.08GB/s[K  |##################################################| 265/265 -   1.10GB/s[K
+[I] loading tensors completed, taking 6.48s (read: 6.32s, memcpy: 0.00s, convert: 0.00s, copy_to_backend: 0.00s) --- model_loader.cpp:1450
+[I] qwen_image_2_1 build cached graph cut plan done (taking 3 ms) --- ggml_graph_cut.cpp:1034
+  |==>                                               |  1/20 -  77.34s/it - ETA 24:29[K[I] qwen_image_2_1 build cached graph cut plan done (taking 2 ms) --- ggml_graph_cut.cpp:1034
+[I] qwen_image_2_1 build cached graph cut plan done (taking 3 ms) --- ggml_graph_cut.cpp:1034
+  |=====>                                            |  2/20 -  62.51s/it - ETA 20:58[K  |=======>                                          |  3/20 -  62.20s/it - ETA 19:04[K  |==========>                                       |  4/20 -  62.21s/it - ETA 17:37[K  |============>                                     |  5/20 -  62.20s/it - ETA 16:19[K  |===============>                                  |  6/20 -  62.20s/it - ETA 15:06[K  |=================>                                |  7/20 -  62.19s/it - ETA 13:57[K  |====================>                             |  8/20 -  62.20s/it - ETA 12:49[K  |======================>                           |  9/20 -  62.20s/it - ETA 11:43[K  |=========================>                        | 10/20 -  62.20s/it - ETA 10:37[K  |===========================>                      | 11/20 -  62.19s/it - ETA 09:32[K  |==============================>                   | 12/20 -  62.19s/it - ETA 08:27[K  |================================>                 | 13/20 -  62.19s/it - ETA 07:23[K  |===================================>              | 14/20 -  62.20s/it - ETA 06:19[K  |=====================================>            | 15/20 -  62.20s/it - ETA 05:16[K  |========================================>         | 16/20 -  62.20s/it - ETA 04:12[K  |==========================================>       | 17/20 -  62.19s/it - ETA 03:09[K  |=============================================>    | 18/20 -  62.19s/it - ETA 02:06[K  |===============================================>  | 19/20 -  62.19s/it - ETA 01:03[K  |==================================================| 20/20 -  62.20s/it[K
+[I] sampling completed, taking 1259.46s --- image.cpp:1000
+[I] generating 1 latent images completed, taking 1259.46s --- image.cpp:1014
+[I] decoding 1 latents --- image.cpp:652
+[I] wan_vae build cached graph cut plan done (taking 1 ms) --- ggml_graph_cut.cpp:1034
+  |######################                            |  56/128 - 842.14MB/s[K  |#################################                 |  84/128 - 936.17MB/s[K  |##################################################| 128/128 - 792.60MB/s[K
+[I] loading tensors completed, taking 0.61s (read: 0.41s, memcpy: 0.00s, convert: 0.04s, copy_to_backend: 0.00s) --- model_loader.cpp:1450
+[I] latent 1 decoded, taking 27.35s --- image.cpp:718
+[I] decode_first_stage completed, taking 27.35s --- image.cpp:722
+[I] generate_image completed in 1304.10s --- image.cpp:1193
+[I] ggml: ggml_metal_free: deallocating
+[I] save result image 0 to 'results/m1-pro-32gb/base-q8/run-1/4-ui.png' (success) --- main.cpp:495
+[I] 1/1 images saved --- main.cpp:571
+     1305.63 real        97.39 user        25.40 sys
+         23239032832  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             1583597  page reclaims
+                 660  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+              953356  voluntary context switches
+              302801  involuntary context switches
+        749147974902  instructions retired
+        345694879577  cycles elapsed
+         23377689408  peak memory footprint

@@ -1,0 +1,22 @@
+[
+  {"variant": "turbo-q4", "prompt": "1-portrait", "text": "n/a", "anatomy": "ok", "match": "yes", "artifacts": "none", "notes": "Fewer loose threads than asked."},
+  {"variant": "turbo-q8", "prompt": "1-portrait", "text": "n/a", "anatomy": "ok", "match": "yes", "artifacts": "none", "notes": "Same composition as Q4, slightly more texture."},
+  {"variant": "base-q8", "prompt": "1-portrait", "text": "n/a", "anatomy": "ok", "match": "yes", "artifacts": "none", "notes": "Most skin and wool detail; loose threads visible."},
+  {"variant": "base-f16", "prompt": "1-portrait", "text": "n/a", "anatomy": "ok", "match": "yes", "artifacts": "none", "notes": "Hard to tell apart from Base Q8."},
+  {"variant": "turbo-q4", "prompt": "2-motion", "text": "n/a", "anatomy": "ok", "match": "yes", "artifacts": "none", "notes": "Both legs extended, five fingers per hand."},
+  {"variant": "turbo-q8", "prompt": "2-motion", "text": "n/a", "anatomy": "ok", "match": "yes", "artifacts": "none", "notes": "Almost the same image as Q4."},
+  {"variant": "base-q8", "prompt": "2-motion", "text": "n/a", "anatomy": "ok", "match": "yes", "artifacts": "none", "notes": "Profile view, visible stage curtain."},
+  {"variant": "base-f16", "prompt": "2-motion", "text": "n/a", "anatomy": "ok", "match": "yes", "artifacts": "none", "notes": "Hard to tell apart from Base Q8."},
+  {"variant": "turbo-q4", "prompt": "3-typography", "text": "all correct", "anatomy": "n/a", "match": "yes", "artifacts": "none", "notes": "Circle overlaps the title as asked."},
+  {"variant": "turbo-q8", "prompt": "3-typography", "text": "all correct", "anatomy": "n/a", "match": "yes", "artifacts": "none", "notes": "Circle overlaps the title as asked."},
+  {"variant": "base-q8", "prompt": "3-typography", "text": "all correct", "anatomy": "n/a", "match": "partial", "artifacts": "none", "notes": "Circle sits next to the title, does not overlap it."},
+  {"variant": "base-f16", "prompt": "3-typography", "text": "all correct", "anatomy": "n/a", "match": "partial", "artifacts": "none", "notes": "Same layout as Base Q8, circle does not overlap."},
+  {"variant": "turbo-q4", "prompt": "4-ui", "text": "all correct", "anatomy": "n/a", "match": "yes", "artifacts": "none", "notes": "Four labeled bars, but the bars carry no values."},
+  {"variant": "turbo-q8", "prompt": "4-ui", "text": "all correct", "anatomy": "n/a", "match": "yes", "artifacts": "none", "notes": "Same as Q4."},
+  {"variant": "base-q8", "prompt": "4-ui", "text": "all correct", "anatomy": "n/a", "match": "partial", "artifacts": "none", "notes": "Two progress bars instead of a four-bar chart; labels float."},
+  {"variant": "base-f16", "prompt": "4-ui", "text": "all correct", "anatomy": "n/a", "match": "partial", "artifacts": "none", "notes": "Same layout as Base Q8."},
+  {"variant": "turbo-q4", "prompt": "5-official-poster", "text": "many errors", "anatomy": "n/a", "match": "yes", "artifacts": "garbled small text", "notes": "Reactivity series skips Fe and repeats Pt; table has a wrong extra Copper column."},
+  {"variant": "turbo-q8", "prompt": "5-official-poster", "text": "few errors", "anatomy": "n/a", "match": "yes", "artifacts": "garbled small text", "notes": "Series and table correct; two table cells and one side note garbled."},
+  {"variant": "base-q8", "prompt": "5-official-poster", "text": "1 error", "anatomy": "n/a", "match": "yes", "artifacts": "none", "notes": "Hg repeated in the series; table and notes clean."},
+  {"variant": "base-f16", "prompt": "5-official-poster", "text": "all correct", "anatomy": "n/a", "match": "yes", "artifacts": "none", "notes": "Cleanest poster: series, table and notes correct."}
+]

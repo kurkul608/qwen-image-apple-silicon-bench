@@ -1,0 +1,38 @@
+[
+  {
+    "name": "poster-series",
+    "prompt": "5-official-poster",
+    "boxes": {
+      "turbo-q4": [30, 490, 250, 940],
+      "turbo-q8": [30, 480, 250, 900],
+      "base-q8": [30, 490, 250, 940],
+      "base-f16": [30, 490, 250, 900]
+    }
+  },
+  {
+    "name": "poster-table",
+    "prompt": "5-official-poster",
+    "boxes": {
+      "turbo-q4": [245, 770, 710, 1015],
+      "turbo-q8": [250, 770, 710, 1000],
+      "base-q8": [240, 770, 710, 1025],
+      "base-f16": [240, 770, 710, 1025]
+    }
+  },
+  {
+    "name": "cfg6-ui",
+    "prompt": "4-ui",
+    "boxes": {
+      "base-q8-cfg6": [0, 0, 1024, 1024],
+      "base-q8": [0, 0, 1024, 1024]
+    }
+  },
+  {
+    "name": "cfg6-poster",
+    "prompt": "5-official-poster",
+    "boxes": {
+      "base-q8-cfg6": [0, 0, 1024, 1536],
+      "base-q8": [0, 0, 1024, 1536]
+    }
+  }
+]
