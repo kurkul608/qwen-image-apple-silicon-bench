@@ -8,7 +8,7 @@ How fast does Qwen-Image-2.1 run on a 2021 MacBook Pro, how much memory does it 
 
 - **Turbo Q8_0 is the best choice on this Mac.** About 5 minutes per 1024×1024 image, 23 GB peak memory, no swap growth, good text.
 - **Turbo Q4_K_M is not faster.** It saves 7 GB of memory, but each step is slightly slower (33 s against 31 s), and small text on the dense poster breaks.
-- **Base (non-distilled) takes about 4.3 times longer**: 40 steps instead of 8, about 22 minutes per image. It renders dense small text best. On two simple layout prompts it follows the prompt less well than Turbo.
+- **Base (non-distilled) takes about 4.3 times longer**: 40 steps instead of 8, about 22 minutes per image. It renders dense small text best. On two simple layout prompts it follows the prompt less well than Turbo. A follow-up with more seeds shows this is partly seed luck, but Turbo is more reliable on layout. See [One seed is not enough](#one-seed-is-not-enough-the-finance-app-ui).
 - **The original F16 model runs, but only with heavy swap.** Peak memory is 44 GB on a 32 GB machine and swap grows to 21 GB. Its images are almost the same as Base Q8_0, so the extra memory gives little.
 - **Do not use CFG 6 with Base.** The stable-diffusion.cpp docs example uses `--cfg-scale 6.0`. With it, text-heavy images come out washed out and half empty. The official pipeline samples with no guidance (CFG 1). See [CFG 6 versus CFG 1](#cfg-6-versus-cfg-1).
 
@@ -119,6 +119,39 @@ The diffusers pipeline explains why: *"Qwen-Image 2.1 is meant to be sampled wit
 
 I kept those runs as `base-q8-cfg6` and `base-f16-cfg6`, so the mistake stays visible. The poster comparison is in [docs/crop-cfg6-poster.jpg](docs/crop-cfg6-poster.jpg).
 
+## One seed is not enough: the finance app UI
+
+In the main runs (seed 42), both Turbo versions drew the four-bar chart the prompt asks for. Base Q8_0 and Original F16 drew two progress bars with loose labels instead. That looked like the stronger model doing worse. F16 repeating the mistake proves nothing on its own: it is the same model with the same seed, so it draws almost the same image.
+
+To find out whether this was the seed or the model, I ran the UI prompt again with `probe_ui.py`:
+
+- Turbo Q8_0 and Base Q8_0 with seeds 1, 2 and 3, CFG 1.
+- Base Q8_0 with seed 42 at CFG 2.5 and CFG 4.
+
+![Finance app UI across seeds and CFG values](docs/ui-probe.jpg)
+
+| Seed | Turbo Q8_0 | Base Q8_0 |
+| --- | --- | --- |
+| 42 | four vertical bars | two progress bars, no chart |
+| 1 | four vertical bars | one bar split into four colored parts |
+| 2 | four vertical bars | four vertical bars |
+| 3 | four horizontal bars and an extra empty fifth bar | four horizontal bars |
+
+| Base Q8_0, seed 42 | Result | Time |
+| --- | --- | --- |
+| CFG 1 | two progress bars, no chart | 21:37 |
+| CFG 2.5 | two progress bars, no chart | 42:34 |
+| CFG 4 | four bars, but so pale they almost disappear | 42:33 |
+
+What this shows:
+
+- **Seed 42 was an unlucky seed for Base.** With seed 2, Base draws a clean four-bar chart. Base can follow this prompt.
+- **Turbo follows the layout more reliably.** It drew a bar chart on 4 of 4 seeds (vertical on 3), Base on 2 of 4. Four seeds are too few for a rate, but the direction matches the Swiss poster prompt.
+- **Guidance is not a fix.** CFG 2.5 changes nothing. CFG 4 gets the layout but starts to wash out the colors, as CFG 6 did, and every step takes twice as long.
+- **The style difference holds on every seed.** Base uses thin type and muted colors. Turbo uses bold type and saturated colors.
+
+Raw numbers are in [results/m1-pro-32gb/ui-probe/probe.json](results/m1-pro-32gb/ui-probe/probe.json).
+
 ## Metal crash in the text encoder
 
 With the text encoder on the GPU, sd-cli crashes after about 9 seconds with `EXC_BAD_ACCESS (SIGSEGV)` inside the Metal driver (`AGXMetalG13X`, `setBuffer`), called from `LLM::LLMRunner::compute`. Every run here uses `--backend te=cpu`, which keeps the text encoder on the CPU. The diffusion model and VAE stay on Metal.
@@ -146,6 +179,7 @@ benchmark.py        runs one model over the prompts, records time, memory, swap 
 variants.py         the four models and their settings
 prompts.json        the five prompts
 report.py           builds summary.md, docs/grid.jpg and the crops
+probe_ui.py         follow-up: the UI prompt with more seeds and CFG values
 results/m1-pro-32gb/<model>/run-<n>/   images and full sd-cli logs
 results/m1-pro-32gb/metrics.json       one record per image
 ```
@@ -154,7 +188,7 @@ Images from the second Turbo run are not committed, because they are identical t
 
 ## Limits
 
-- One Mac, one seed per prompt. Another seed can change which model wins a prompt.
+- One Mac, one seed per prompt in the main runs. Another seed can change which model wins a prompt; the UI follow-up shows it does.
 - The quality review is manual.
 - All images are 1024×1024 or 1024×1536. The official default is 2048×2048, which was not tested here.
 - The Mac was idle but not freshly rebooted, so 2 to 4 GB of swap was in use before each run.
